@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "extensionId": "org.fleet.ratio",
+  "pages": [
+    {
+      "id": "groups",
+      "title": "Ratio Groups",
+      "route": "/ext/org.fleet.ratio/groups"
+    }
+  ],
+  "actions": [
+    {
+      "id": "evaluate-now",
+      "label": "Evaluate now",
+      "target": "global",
+      "primary": true
+    },
+    {
+      "id": "preview",
+      "label": "Preview (dry-run)",
+      "target": "global"
+    }
+  ],
+  "panels": [
+    {
+      "id": "ratio-settings",
+      "title": "Ratio",
+      "placement": "settings"
+    }
+  ],
+  "forms": [
+    {
+      "id": "ratio-group",
+      "title": "Ratio group",
+      "fields": [
+        {
+          "name": "name",
+          "label": "Label name (matches torrent label)",
+          "kind": "text",
+          "required": true,
+          "placeholder": "account-name"
+        },
+        {
+          "name": "minRatio",
+          "label": "Min ratio (e.g. 1.0)",
+          "kind": "number"
+        },
+        {
+          "name": "maxRatio",
+          "label": "Max ratio (0=ignore if seed-time set)",
+          "kind": "number"
+        },
+        {
+          "name": "minUploadBytes",
+          "label": "Min uploaded bytes before ratio action (0=ignore)",
+          "kind": "number"
+        },
+        {
+          "name": "maxSeedSeconds",
+          "label": "Max seed seconds (0=disabled)",
+          "kind": "number"
+        },
+        {
+          "name": "action",
+          "label": "Action (stop|pause|erase)",
+          "kind": "text",
+          "required": true
+        },
+        {
+          "name": "intervalSec",
+          "label": "Auto-evaluate interval seconds (min 15)",
+          "kind": "number",
+          "help": "How often the worker wakes up.",
+          "placeholder": "60",
+          "advanced": true
+        },
+        {
+          "name": "enabled",
+          "label": "Group + extension enabled",
+          "kind": "boolean",
+          "help": "Master switch for this worker."
+        }
+      ],
+      "description": "Adjust Ratio group — essentials first, extras under More options."
+    }
+  ]
+}

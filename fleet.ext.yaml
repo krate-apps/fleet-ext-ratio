@@ -1,0 +1,21 @@
+schema: 1
+id: org.fleet.ratio
+name: Ratio Groups
+description: Enforce ratio and seed-time rules by label.
+version: 1.0.0
+api: ">=1.0.0 <2.0.0"
+engines:
+  - rtorrent
+capabilities:
+  - torrents.read
+  - torrents.actions
+  - storage.read
+  - storage.write
+  - jobs.schedule
+frontend:
+  type: declarative
+  entry: ui/extension.json
+backend:
+  type: process
+  executable: bin/ratio-worker
+  protocol: jsonrpc-2
